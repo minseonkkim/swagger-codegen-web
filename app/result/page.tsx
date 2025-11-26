@@ -12,7 +12,7 @@ export default function ResultPage() {
 }
 
 function ResultContent() {
-  const params = useSearchParams(); // 이제 안전함
+  const params = useSearchParams();
   const [blocks, setBlocks] = useState<any[]>([]);
   const [search, setSearch] = useState("");
   const [copied, setCopied] = useState<number | null>(null);
@@ -22,9 +22,10 @@ function ResultContent() {
     if (saved) setBlocks(JSON.parse(saved));
   }, []);
 
-  const filtered = blocks.filter(b =>
-    b.path.toLowerCase().includes(search.toLowerCase()) ||
-    b.code.toLowerCase().includes(search.toLowerCase())
+  const filtered = blocks.filter(
+    (b) =>
+      b.path.toLowerCase().includes(search.toLowerCase()) ||
+      b.code.toLowerCase().includes(search.toLowerCase())
   );
 
   const copy = (code: string, i: number) => {
@@ -51,10 +52,11 @@ function ResultContent() {
 
             <button
               onClick={() => copy(b.code, i)}
-              className={`px-2 py-1 text-xs border rounded transition ${copied === i
-                ? "bg-lime-300 border-lime-500 scale-110"
-                : "bg-white hover:bg-blue-600 hover:text-white"
-                }`}
+              className={`px-2 py-1 text-xs border rounded transition cursor-pointer ${
+                copied === i
+                  ? "bg-lime-300 border-lime-500 scale-110"
+                  : "bg-white hover:bg-blue-600 hover:text-white"
+              }`}
             >
               {copied === i ? "Copied!" : "📄 Copy"}
             </button>

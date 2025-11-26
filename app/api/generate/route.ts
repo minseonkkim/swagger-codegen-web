@@ -10,19 +10,20 @@ export async function POST(req: NextRequest) {
 
     let swagger;
 
-    if (json) {                      // 👈 JSON 직접 입력 처리
-      try { swagger = JSON.parse(json); }
-      catch { return Response.json({ error: "JSON 형식 오류" }, { status: 400 }); }
-    }
-    else if (url) {
+    if (json) {
+      try {
+        swagger = JSON.parse(json);
+      } catch {
+        return Response.json({ error: "JSON 형식 오류" }, { status: 400 });
+      }
+    } else if (url) {
       const res = await fetch(url);
-      if (!res.ok) return Response.json({ error: "URL 접근 실패" }, { status: 400 });
+      if (!res.ok)
+        return Response.json({ error: "URL 접근 실패" }, { status: 400 });
       swagger = await res.json();
-    }
-    else return Response.json({ error: "URL or JSON 필요" }, { status: 400 });
+    } else return Response.json({ error: "URL or JSON 필요" }, { status: 400 });
 
     return Response.json({ blocks: generateEndpointBlocks(swagger) });
-
   } catch {
     return Response.json({ error: "서버 오류" }, { status: 500 });
   }

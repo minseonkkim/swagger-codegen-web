@@ -14,7 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Swagger Code Generator",
-  description: "Swagger CodeGenerator은 Swagger 문서만 넣으면 API 코드를 자동으로 생성해줍니다.",
+  description:
+    "Swagger CodeGenerator는 Swagger 문서를 넣으면 프론트엔드 API 연동 코드를 자동으로 생성해줍니다.",
 };
 
 export default function RootLayout({
