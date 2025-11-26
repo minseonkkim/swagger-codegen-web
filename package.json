@@ -9,7 +9,10 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
     "next": "16.0.4",
+    "node-fetch": "^3.3.2",
     "openapi-typescript": "^6.7.6",
     "react": "19.2.0",
     "react-dom": "19.2.0"
@@ -23,5 +26,18 @@
     "eslint-config-next": "16.0.4",
     "tailwindcss": "^4",
     "typescript": "^5"
-  }
+  },
+  "description": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/minseonkkim/swagger-codegen-web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/minseonkkim/swagger-codegen-web/issues"
+  },
+  "homepage": "https://github.com/minseonkkim/swagger-codegen-web#readme"
 }
